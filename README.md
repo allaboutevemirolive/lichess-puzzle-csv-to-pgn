@@ -14,7 +14,7 @@ You need to have `Java Runtime Environment` (JRE) installed on your computer to 
 
 ## Step 3: Place Files in a Folder
 
-Place the downloaded `Lichess Puzzle CSV to PGN.exe` program and the Lichess puzzle database CSV file in the same folder.
+Place the downloaded `Lichess Puzzle CSV to PGN.exe` program and the 'Lichess puzzle database' CSV file in the same folder.
 
 ## Step 4: Convert the File
 
