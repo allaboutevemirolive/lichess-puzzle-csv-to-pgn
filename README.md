@@ -1,8 +1,8 @@
-# lichess-puzzle-csv-to-pgn with rating filter
+# lichess-puzzle-csv-to-pgn with `rating filter`
 
 ![Example](https://github.com/allaboutevemirolive/lichess-puzzle-csv-to-pgn/tree/main/lichess/Icon/example4.png)
  
-This is a simple guide on how to use the `Lichess Puzzle CSV to PGN.exe.exe` program to convert Lichess puzzle database from CSV format to PGN format with your desired `rating filter`.
+This is a simple guide on how to use the `Lichess Puzzle CSV to PGN.exe` program to convert Lichess puzzle database from `CSV` format to `PGN` format with your desired `rating filter`.
 
 ## Step 1: Download the Lichess Puzzle Database
 
