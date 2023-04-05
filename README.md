@@ -1,7 +1,5 @@
 
-### lichess-puzzle-csv-to-pgn with `Rating Filter`
-
-# `Precision`, `Power` & `Flexibility` 
+# lichess-puzzle-csv-to-pgn with `Rating Filter`
 
 Empower your chess game with increased flexibility and control over the `Lichess Puzzle Database`. 
 
