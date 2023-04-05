@@ -3,9 +3,9 @@
 
 # `Precision`, `Power` and `Flexibility` over your training
 
-Empower your chess game with increased `flexibility` and `control` over the `Lichess Puzzle Database`. 
+Empower your chess game with increased flexibility and control over the `Lichess Puzzle Database`. 
 
-Rather than go through every puzzle in Lichess,  you can select the `level of difficulty` of your choice  and do `offline` training, `annotate` it, or even publish it as a `hardcover book`.
+Rather than go through every puzzle in Lichess,  you can select the level of difficulty of your choice  and do `offline` training, `annotate` it, or even publish it as a `hardcover book`.
 
 
 
