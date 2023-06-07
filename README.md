@@ -48,5 +48,3 @@ If you have any improvement ideas or found any bugs, feel free to reach out to m
 - Twitter: https://twitter.com/akmalfirdxus
 - Instagram: https://www.instagram.com/akmxlfirdaus/
 
--
-_
