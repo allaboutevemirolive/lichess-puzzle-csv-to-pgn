@@ -1,0 +1,15 @@
+[package]
+name = "lichess-puzzle-csv-to-pgn"
+version = "2.0.0"
+edition = "2024"
+default-run = "lichess-puzzle-csv-to-pgn"
+description = "Convert filtered Lichess puzzle CSV exports into valid PGN files"
+license = "MIT"
+repository = "https://github.com/allaboutevemirolive/lichess-puzzle-csv-to-pgn"
+
+[dependencies]
+csv = "1.4.0"
+eframe = "0.36.2"
+rfd = "0.17.2"
+shakmaty = "0.30.1"
+tempfile = "3.24.0"

@@ -1,49 +1,64 @@
+# Lichess Puzzle CSV to PGN
 
-# lichess-puzzle-csv-to-pgn with `Rating Filter`
+A native Rust application that filters an unpacked [Lichess puzzle database](https://database.lichess.org/#puzzles) CSV by minimum rating and exports the matching puzzles as PGN.
 
-Empower your chess game with increased flexibility and control over the `Lichess Puzzle Database`. 
+It replaces the old Java/JavaFX app, so no Java Runtime Environment is needed. The legacy Java source remains in [`lichess/`](lichess/) only for historical reference.
 
-You can select the `level` of difficulty of your choice  and do `offline` training, `annotate` it, or even publish it as a `hardcover book`.
+## What it does
 
+- Reads the official Lichess CSV format, including properly quoted CSV fields.
+- Includes puzzles with a rating **greater than or equal to** the minimum rating.
+- Validates each exported FEN and UCI move sequence.
+- Converts UCI moves to standard algebraic notation (SAN), producing usable PGN move text.
+- Preserves puzzle metadata (`PuzzleId`, rating, themes, popularity, opening tags, and source URL) as PGN tags.
+- Streams the source and writes through a temporary file, so a failed conversion never replaces an existing output PGN.
 
+## Requirements
 
+- Rust 1.85 or newer. Install it with [rustup](https://rustup.rs/) if `cargo --version` is unavailable.
+- An **uncompressed** Lichess puzzle CSV. The database download may arrive as `.csv.zst`; unpack it before converting.
 
-<div>
-  <img src="https://github.com/allaboutevemirolive/lichess-puzzle-csv-to-pgn/blob/main/lichess/Icon/example4.png" width="45%" />
-  <img src="https://github.com/allaboutevemirolive/lichess-puzzle-csv-to-pgn/blob/main/lichess/Icon/example5.png" width="45%" />
-</div>
+On macOS, if needed:
 
+```sh
+brew install zstd
+zstd -d lichess_db_puzzle.csv.zst
+```
 
- 
-This is a simple guide on how to use the Lichess Puzzle CSV to PGN.exe to convert Lichess puzzle database from `CSV` format to `PGN` format with your desired `rating filter`.
+## Run the desktop app
 
-## Step 1: Download the Lichess Puzzle Database
+From this repository:
 
-You can download the `Lichess puzzle database` in CSV format from [this link](https://database.lichess.org/#puzzles).
+```sh
+cargo run --release
+```
 
-## Step 2: Install Java Runtime Environment (JRE)
+Choose the unpacked CSV, choose the destination PGN, enter a minimum rating, then select **Convert to PGN**. The app keeps the interface responsive while it converts and displays record counts as it runs.
 
-You need to have `Java Runtime Environment` (JRE) installed on your computer to use the `Lichess Puzzle CSV to PGN.exe`. 
+To build the standalone executable without launching it:
 
-You can download and install JRE from [this link](https://www.java.com/en/download/manual.jsp).
+```sh
+cargo build --release
+```
 
-## Step 3: Place Files in a Folder
+The executable is created at `target/release/lichess-puzzle-csv-to-pgn` (or `.exe` on Windows).
 
-Place the downloaded `Lichess Puzzle CSV to PGN.exe` and the `Lichess puzzle database` CSV file in the same folder.
+## Command line
 
-## Step 4: Convert the File
+The same converter is also available without a GUI:
 
-Open the `Lichess Puzzle CSV to PGN.exe` and select the `Lichess puzzle database` CSV file. 
+```sh
+cargo run --release --bin lichess-puzzle-csv-to-pgn-cli -- \
+  --input lichess_db_puzzle.csv \
+  --output puzzles-1500-plus.pgn \
+  --min-rating 1500
+```
 
-Configure your `minimum rating` you want to convert. 
+Use `--help` to see the available flags.
 
-Then click on the `Convert` button to start the conversion process. 
+## Development checks
 
-The PGN file will be generated within a few seconds.
-
-## Need Help?
-
-If you have any improvement ideas or found any bugs, feel free to reach out to me on my social media platforms:
-
-- Twitter: https://twitter.com/akmalfirdxus
-- Instagram: https://www.instagram.com/akmxlfirdaus/
+```sh
+cargo fmt --check
+cargo test --all-targets
+```
